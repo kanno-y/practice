@@ -10,7 +10,7 @@ const data: string = `
   Mary Sue, 14, 1
 `;
 
-const users: User[] = [];
+export const users: User[] = [];
 
 const lines = data.split("\n");
 console.log("lines", lines);
