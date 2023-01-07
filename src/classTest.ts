@@ -67,21 +67,21 @@
 // console.log("uhyo2", uhyo2.getAge());
 
 // staticブロックを使用して、制限を突破したスーパーユーザーを作る
-class User {
-  static adminUser: User;
-  static {
-    this.adminUser = new User();
-    this.adminUser.#age = 9999;
-  }
-  #age: number = 0;
-  getAge() {
-    return this.#age;
-  }
-  setAge(age: number) {
-    if (age < 0 || age > 150) {
-      return;
-    }
-    return this.#age;
-  }
-}
-console.log(User.adminUser.getAge());
+// class User {
+//   static adminUser: User;
+//   static {
+//     this.adminUser = new User();
+//     this.adminUser.#age = 9999;
+//   }
+//   #age: number = 0;
+//   getAge() {
+//     return this.#age;
+//   }
+//   setAge(age: number) {
+//     if (age < 0 || age > 150) {
+//       return;
+//     }
+//     return this.#age;
+//   }
+// }
+// console.log(User.adminUser.getAge());

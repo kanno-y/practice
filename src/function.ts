@@ -58,16 +58,49 @@
 //   console.log(message);
 // }
 
-function map<T, S>(array: T[], callback: (num: T) => S): S[] {
-  let result: S[] = [];
-  for (let i = 0; i < array.length; i++) {
-    const element = callback(array[i]);
-    result.push(element);
+// function map<T, S>(array: T[], callback: (num: T) => S): S[] {
+//   let result: S[] = [];
+//   for (let i = 0; i < array.length; i++) {
+//     const element = callback(array[i]);
+//     result.push(element);
+//   }
+//   return result;
+// }
+// // const data = [1, 1, 2, 3, 5, 8, 13];
+// // const result = map(data, (x) => x * 10);
+// const data = [-1, 1, -2, 3, 5, -8, 13];
+// const result: boolean[] = map(data, (x) => x >= 0);
+// console.log(result);
+
+// Instanceof演算子
+
+type HasAge = {
+  age: number;
+};
+
+class User {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
   }
-  return result;
 }
-// const data = [1, 1, 2, 3, 5, 8, 13];
-// const result = map(data, (x) => x * 10);
-const data = [-1, 1, -2, 3, 5, -8, 13];
-const result: boolean[] = map(data, (x) => x >= 0);
-console.log(result);
+
+function getPrice(customer: HasAge) {
+  if (customer instanceof User) {
+    if (customer.name === "uhyo") {
+      return 0;
+    }
+  }
+  return customer.age <= 18 ? 1000 : 1800;
+}
+
+const customer1: HasAge = { age: 14 };
+const customer2: HasAge = { age: 20 };
+const uhyo = new User("uhyo", 20);
+
+console.log(getPrice(customer1));
+console.log(getPrice(customer2));
+console.log(getPrice(uhyo));
