@@ -85,3 +85,67 @@
 //   }
 // }
 // console.log(User.adminUser.getAge());
+
+// 継承（１）子は親の機能を受け継ぐ
+// class User {
+//   name: string;
+//   age: number;
+
+//   constructor(name: string, age: number) {
+//     this.name = name;
+//     this.age = age;
+//   }
+
+//   public isAdult(): boolean {
+//     return this.age >= 20;
+//   }
+// }
+// // Userを継承したPremiumUserを作成
+// class PremiumUser extends User {
+//   rank: number = 1;
+// }
+
+// // const uhyo = new PremiumUser("uhyo", 20);
+// // const tmp = new User("tmp", 20);
+// // console.log("uhyo.rank", uhyo.rank);
+// // console.log("tmp", tmp);
+// // console.log(uhyo.name);
+// // console.log(uhyo.isAdult());
+
+// function getMessage(u: User) {
+//   return `こんにちは、${u.name}`;
+// }
+
+// const john = new User("john", 15);
+// const uhyo = new PremiumUser("uhyo", 26); // "こんにちは、uhyoさん"と表示される
+
+// console.log(getMessage(john));
+// console.log(getMessage(uhyo));
+
+// 継承（２）親の機能を上書きする
+class User {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public isAdult(): boolean {
+    return this.age >= 20;
+  }
+}
+class PremiumUser extends User {
+  rank: number = 1;
+
+  // isAdultを再宣言して上書きする
+  public isAdult(): boolean {
+    return true;
+  }
+}
+const john = new User("john", 15);
+const taro = new PremiumUser("taro", 15);
+
+console.log(john.isAdult()); // false
+console.log(taro.isAdult()); // true
