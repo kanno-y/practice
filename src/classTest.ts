@@ -123,29 +123,45 @@
 // console.log(getMessage(uhyo));
 
 // 継承（２）親の機能を上書きする
-class User {
-  name: string;
-  age: number;
+// class User {
+//   name: string;
+//   age: number;
 
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
+//   constructor(name: string, age: number) {
+//     this.name = name;
+//     this.age = age;
+//   }
 
-  public isAdult(): boolean {
-    return this.age >= 20;
+//   public isAdult(): boolean {
+//     return this.age >= 20;
+//   }
+// }
+// class PremiumUser extends User {
+//   rank: number = 1;
+
+//   // isAdultを再宣言して上書きする
+//   public isAdult(): boolean {
+//     return true;
+//   }
+// }
+// const john = new User("john", 15);
+// const taro = new PremiumUser("taro", 15);
+
+// console.log(john.isAdult()); // false
+// console.log(taro.isAdult()); // true
+
+class RepeatArray<T> extends Array<T> {
+  repeat(times: number): RepeatArray<T> {
+    const result = new RepeatArray<T>();
+    for (let i = 0; i < times; i++) {
+      result.push(...this);
+    }
+    return result;
   }
 }
-class PremiumUser extends User {
-  rank: number = 1;
 
-  // isAdultを再宣言して上書きする
-  public isAdult(): boolean {
-    return true;
-  }
-}
-const john = new User("john", 15);
-const taro = new PremiumUser("taro", 15);
+const arr = new RepeatArray(1, 2);
+arr.push(3);
+const repeated = arr.repeat(3);
 
-console.log(john.isAdult()); // false
-console.log(taro.isAdult()); // true
+console.log(repeated);
