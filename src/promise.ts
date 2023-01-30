@@ -35,11 +35,11 @@
 // });
 
 // Promiseチェーン（１）
-import { readFile } from "fs/promises";
-const p = readFile("foo.txt", "utf8");
-console.log("p", p);
-const p2 = p.then((result) => result + result);
-console.log("p2", p2);
-p2.then((result) => {
-  console.log(result);
-});
+// import { readFile } from "fs/promises";
+// const p = readFile("foo.txt", "utf8");
+// console.log("p", p);
+// const p2 = p.then((result) => result + result);
+// console.log("p2", p2);
+// p2.then((result) => {
+//   console.log(result);
+// });
